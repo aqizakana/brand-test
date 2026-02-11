@@ -1,10 +1,9 @@
 // mesh.ts
 
 import * as THREE from "three"
-import { MeshPhysicalNodeMaterial } from "three/webgpu"
 
 export abstract class BaseMesh {
-  protected material!: MeshPhysicalNodeMaterial
+  protected material!: any
   protected mesh!: THREE.Mesh
   protected geometry!:
     | THREE.TorusGeometry
@@ -28,7 +27,7 @@ export abstract class BaseMesh {
     camera: THREE.PerspectiveCamera
   ): void
 
-  public getMesh(): THREE.Mesh {
+  public getMesh(): any {
     return this.mesh
   }
 
