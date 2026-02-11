@@ -1,13 +1,13 @@
 import './App.css'
 import { useEffect, useRef } from 'react'
-import * as THREE from 'three/webgpu'
-import { WebGPURenderer } from 'three/webgpu'
+import * as THREE from 'three';
+import { WebGPURenderer } from "three/webgpu"
 import { Torus } from './scripts/torus'
 import { uv, texture } from 'three/tsl'
-
+import { MeshStandardNodeMaterial } from 'three/webgpu'
 function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const rendererRef = useRef<WebGPURenderer | null>(null)
+  const rendererRef = useRef<any>(null)
   const sceneRef = useRef<THREE.Scene | null>(null)
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null)
 
@@ -89,7 +89,7 @@ function App() {
 
       const box = new THREE.BoxGeometry(2, 2, 2)
 
-      const material2 = new THREE.MeshStandardNodeMaterial()
+      const material2 = new MeshStandardNodeMaterial()
       material2.colorNode = base.mul(detail)
 
       const picMesh = new THREE.Mesh(box, material2)
